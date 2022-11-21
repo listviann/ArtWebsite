@@ -1,0 +1,19 @@
+﻿@model IQueryable<Painting>
+
+    @if (Model?.Any() == true)
+    {
+        <section>
+            <h2>Paintings</h2>
+            <ul class="small-image-list">
+                @foreach (Painting entity in Model)
+                {
+                <li>
+                    <a asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.ImagePath" alt="" class="left" />
+                    </a>
+                    <h4>@entity.Title</h4>
+                </li>
+            }
+            </ul>
+        </section>
+    }

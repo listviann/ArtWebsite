@@ -1,0 +1,16 @@
+﻿@model Painting
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div>
+    <div>
+        <img src="~/images/@Model.ImagePath" alt="" />
+    </div>
+    <div>
+        <h2>@Model.Title</h2>
+        <h2>@Model.Author!.Name</h2>
+        <h2>@Model.DateCreated</h2>
+        <h2>@Model.Category!.Name</h2>
+    </div>
+</div>

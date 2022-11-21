@@ -1,0 +1,22 @@
+﻿@model IQueryable<Painting>
+@{
+    PageTextField pageTextField = ViewBag.PageTextField;
+    ViewBag.Title = pageTextField.Title;
+}
+
+<div>
+    @if (Model.Any())
+    {
+        <ul class="big-image-list">
+            @foreach(Painting entity in Model)
+            {
+                <li>
+                    <a asp-asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.ImagePath" alt="" class="left"/>
+                    </a>
+                    <h4>@entity.Title</h4>
+                </li>
+            }
+        </ul>
+    }
+</div>

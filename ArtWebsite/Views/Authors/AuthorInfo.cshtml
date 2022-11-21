@@ -1,0 +1,19 @@
+﻿@model Author
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div>
+    <div>
+        <h2>@Model.Name</h2>
+        <h2>@Model.BirthDate</h2>
+        <h2>@Model.Description</h2>
+    </div>
+    <div>
+        <h2>Paintings</h2>
+        @foreach (Painting painting in Model.Paintings)
+        {
+            <p>@painting.Title</p>
+        }
+    </div>
+</div>
