@@ -1,0 +1,35 @@
+﻿@model IQueryable<Painting>
+@{
+    string strTitle = "Edit paintings";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <div class="div-box">
+            <a asp-area="Admin" asp-controller="PaintingItems" asp-action="Edit" asp-route-id="">Add a new painting</a>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (Painting entity in Model)
+                {
+                    <div>
+                        <a asp-area="Admin" asp-controller="PaintingItems" asp-action="Edit" asp-route-id="@entity.Id">edit</a>
+                        |
+                        <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="PaintingItems" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@entity.Id">
+                            <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">Delete</a>
+                        </form>
+                        |
+                        <a asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-Id="@entity.Id">
+                            @($"{entity.Title}")
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

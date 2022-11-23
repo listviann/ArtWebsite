@@ -1624,3 +1624,18 @@ ul.link-list li:first-child {
     color: #A6A88F;
   }
 }
+.div-box {
+  padding: 15px 0;
+}
+.div-box label {
+  display: block;
+}
+.div-box a {
+  display: block;
+}
+
+.img-block {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}

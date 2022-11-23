@@ -1,0 +1,46 @@
+﻿@model Painting
+@{
+    string strTitle = "Edit painting";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="PaintingItems" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdded" />
+            <input type="hidden" asp-for="ImagePath" />
+
+            <div asp-validation-summary="All"></div>
+                <div class="div-box">
+                    <label asp-for="ImagePath"></label>
+                    <input type="file" name="imagePath" id="imagePath" />
+                    <div>
+                        <img class="img-block" src="~/images/@Model.ImagePath" />
+                    </div>
+                </div>
+                <div class="div-box">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="div-box">
+                    <label asp-for="DateCreated"></label>
+                    <input asp-for="DateCreated" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="div-box">
+                    <label asp-for="AuthorId"></label>
+                    <select name="AuthorId" asp-for="Author" asp-items="ViewBag.Authors"></select>
+                </div>
+                <div class="div-box">
+                    <input asp-for="CategoryId" />
+                    <select name="CategoryId" asp-for="Category" asp-items="ViewBag.Categories"></select>
+                </div>
+                <div class="div-box">
+                    <input type="submit" value="Save" />
+                </div>
+        </form>
+    </div>
+</div>

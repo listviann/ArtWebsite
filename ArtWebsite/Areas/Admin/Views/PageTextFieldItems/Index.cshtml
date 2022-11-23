@@ -1,0 +1,17 @@
+﻿@model IQueryable<PageTextField>
+@{
+    string strTitle = "Edit pages text fields";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <div class="div-box">
+            <a asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Edit" asp-route-codeWord="Index">Home page</a>
+            <a asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Edit" asp-route-codeWord="Gallery">Gallery page</a>
+            <a asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Edit" asp-route-codeWord="PaintingInfo">Painting</a>
+            <a asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Edit" asp-route-codeWord="AuthorInfo">Author</a>
+        </div>
+    </div>
+</div>

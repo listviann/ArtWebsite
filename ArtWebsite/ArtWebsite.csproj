@@ -14,14 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Models\" />
-    <Folder Include="Areas\Views\AuthorItems\" />
-    <Folder Include="Areas\Views\CategoryItems\" />
-    <Folder Include="Areas\Views\Home\" />
-    <Folder Include="Areas\Views\PaintingItems\" />
-    <Folder Include="Areas\Views\PageTextFieldItems\" />
+    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="TagHelpers\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\js\" />

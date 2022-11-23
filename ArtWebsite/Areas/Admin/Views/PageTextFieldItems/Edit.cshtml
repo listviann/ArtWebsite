@@ -1,0 +1,41 @@
+﻿@model PageTextField
+@{
+    string strTitle = "Edit text fields";
+    ViewBag.Title = strTitle;
+}
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <form asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdded" />
+            <input type="hidden" asp-for="CodeWord" />
+
+            <div asp-validation-summary="All">
+                <div class="div-box">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" />
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="div-box">
+                    <label asp-for="Description"></label>
+                    <textarea asp-for="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="div-box">
+                    <input type="submit" value="Save" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x => x.Description)');
+        newCKEdit.updateElement();
+    }
+</script>

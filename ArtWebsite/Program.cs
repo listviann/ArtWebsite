@@ -38,6 +38,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
+builder.Services.AddAuthorization(x =>
+{
+    x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+});
+
 builder.Services.AddControllersWithViews(x =>
 {
     x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));

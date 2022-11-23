@@ -1,0 +1,33 @@
+﻿@model IQueryable<Category>
+@{
+    string strTitle = "Edit categories";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <div class="div-box">
+            <a asp-area="Admin" asp-controller="CategoryItems" asp-action="Edit" asp-route-id="">Add a category</a>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div>
+                @foreach (Category entity in Model)
+                {
+                    <div>
+                        <a asp-area="Admin" asp-controller="CategoryItems" asp-action="Edit" asp-route-id="@entity.Id">edit</a>
+                        |
+                        <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="CategoryItems" asp-action="Delete" method="post">
+                            <input type="hidden" name="id" value="@entity.Id">
+                            <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">Delete</a>
+                        </form>
+                        |
+                        @($"{entity.Name}")
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
