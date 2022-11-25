@@ -3,7 +3,7 @@
     ViewBag.Title = strTitle;
 }
 
-<div>
+<div class="div-box">
     <div>
         <h3>Edit the website data</h3>
         <p><a asp-area="Admin" asp-controller="PaintingItems" asp-action="Index">Paintings</a></p>
@@ -11,7 +11,7 @@
         <p><a asp-area="Admin" asp-controller="CategoryItems" asp-action="Index">Categories</a></p>
         <p><a asp-area="Admin" asp-controller="PageTextFieldItems" asp-action="Index">Pages text fields data</a></p>
     </div>
-    <div>
+    <div class="div-box">
         <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
             <input type="submit" value="Logout" />
         </form>
