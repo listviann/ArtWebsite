@@ -10,7 +10,6 @@
     <Content Remove="bundleconfig.json" />
     <Content Remove="compilerconfig.json" />
     <Content Remove="Views\CssPartial.cshtml" />
-    <Content Remove="Views\Paintings\PaintingInfo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +24,6 @@
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
-    <None Include="Views\Paintings\PaintingInfo.cshtml" />
     <None Include="Views\Shared\CssPartial.cshtml" />
   </ItemGroup>
 

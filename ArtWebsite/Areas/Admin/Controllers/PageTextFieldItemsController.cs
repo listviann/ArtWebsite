@@ -15,9 +15,9 @@ namespace ArtWebsite.Areas.Admin.Controllers
             _dataManager = dataManager;
         }
 
-        public IActionResult Edit(Guid id)
+        public IActionResult Edit(string codeWord)
         {
-            var entity = id == default ? new PageTextField() : _dataManager.PagesTextFields.GetPageTextFieldById(id);
+            var entity =  _dataManager.PagesTextFields.GetPageTextFieldByCodeWord(codeWord);
             return View(entity);
         }
 

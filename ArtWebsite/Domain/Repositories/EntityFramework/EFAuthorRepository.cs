@@ -19,7 +19,7 @@ namespace ArtWebsite.Domain.Repositories.EntityFramework
             _db.SaveChanges();
         }
 
-        public Author GetAuthorById(Guid id) => _db.Authors.FirstOrDefault(a => a.Id == id);
+        public Author GetAuthorById(Guid id) => _db.Authors.Include(a => a.Paintings).FirstOrDefault(a => a.Id == id);
 
         public IQueryable<Author> GetAuthors() => _db.Authors;
 

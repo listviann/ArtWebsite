@@ -19,9 +19,9 @@ namespace ArtWebsite.Domain.Repositories.EntityFramework
             _db.SaveChanges();
         }
 
-        public Painting GetPaintingById(Guid id) => _db.Paintings.FirstOrDefault(p => p.Id == id);
+        public Painting GetPaintingById(Guid id) => _db.Paintings.Include(p => p.Author).Include(p => p.Category).FirstOrDefault(p => p.Id == id);
 
-        public IQueryable<Painting> GetPaintings() => _db.Paintings;
+        public IQueryable<Painting> GetPaintings() => _db.Paintings.Include(p => p.Author).Include(p => p.Category);
 
         public void Save(Painting entity)
         {

@@ -46,7 +46,7 @@ namespace ArtWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("ArtWebsite.Domain.Entities.Category", b =>
@@ -65,7 +65,7 @@ namespace ArtWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("ArtWebsite.Domain.Entities.PageTextField", b =>
@@ -91,7 +91,7 @@ namespace ArtWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PagesTextFields");
+                    b.ToTable("PagesTextFields", (string)null);
 
                     b.HasData(
                         new
@@ -160,7 +160,7 @@ namespace ArtWebsite.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Paintings");
+                    b.ToTable("Paintings", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

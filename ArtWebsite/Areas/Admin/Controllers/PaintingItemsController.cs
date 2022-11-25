@@ -2,13 +2,14 @@
 using ArtWebsite.Domain.Entities;
 using ArtWebsite.Service;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ArtWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class PaintingItemsController : Controller
     {
-        private DataManager _dataManager;
+        private readonly DataManager _dataManager;
         private readonly IWebHostEnvironment _hostingEnvironment;
 
         public PaintingItemsController(DataManager dataManager, IWebHostEnvironment hostingEnvironment)
@@ -20,6 +21,11 @@ namespace ArtWebsite.Areas.Admin.Controllers
         public IActionResult Edit(Guid id)
         {
             var entity = id == default ? new Painting() : _dataManager.Paintings.GetPaintingById(id);
+            List<Author> authors = _dataManager.Authors.GetAuthors().ToList();
+            ViewBag.Authors = new SelectList(authors, "Id", "Name");
+
+            List<Category> categories = _dataManager.Categories.GetCategories().ToList();
+            ViewBag.Categories = new SelectList(categories, "Id", "Name");
             return View(entity);
         }
 

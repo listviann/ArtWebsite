@@ -5,12 +5,18 @@
 
 <div>
     <div>
-        <img src="~/images/@Model.ImagePath" alt="" />
+        <img class="img-block" src="~/images/@Model.ImagePath" />
     </div>
-    <div>
-        <h2>@Model.Title</h2>
-        <h2>@Model.Author!.Name</h2>
-        <h2>@Model.DateCreated</h2>
-        <h2>@Model.Category!.Name</h2>
-    </div>
+    <p>
+        @Model.Title
+    </p>
+    <p>
+        @Model.DateCreated
+    </p>
+    <p>
+        @Model.Author!.Name
+    </p>
+    <p>
+        @Model.Category!.Name
+    </p>
 </div>

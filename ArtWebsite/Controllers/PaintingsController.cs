@@ -19,7 +19,7 @@ namespace ArtWebsite.Controllers
                 return View("PaintingInfo", _dataManager.Paintings.GetPaintingById(id));
             }
 
-            ViewBag.PageTextField = _dataManager.PagesTextFields.GetPageTextFieldByCodeWord("PaintingInfo");
+            ViewBag.PageTextField = _dataManager.PagesTextFields.GetPageTextFieldByCodeWord("Gallery");
             return View(_dataManager.Paintings.GetPaintings());
         }
     }

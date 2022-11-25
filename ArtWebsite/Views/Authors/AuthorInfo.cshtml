@@ -5,12 +5,12 @@
 
 <div>
     <div>
-        <h2>@Model.Name</h2>
-        <h2>@Model.BirthDate</h2>
-        <h2>@Model.Description</h2>
+        <p>@Model.Name</p>
+        <p>@Model.BirthDate</p>
+        <p>@Html.Raw(Model.Description)</p>
     </div>
     <div>
-        <h2>Paintings</h2>
+        <p>Paintings</p>
         @foreach (Painting painting in Model.Paintings)
         {
             <p>@painting.Title</p>

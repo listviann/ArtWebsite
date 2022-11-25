@@ -15,7 +15,7 @@
             <div asp-validation-summary="All"></div>
                 <div class="div-box">
                     <label asp-for="ImagePath"></label>
-                    <input type="file" name="imagePath" id="imagePath" />
+                    <input type="file" name="imageFile" id="imageFile" />
                     <div>
                         <img class="img-block" src="~/images/@Model.ImagePath" />
                     </div>
@@ -27,15 +27,15 @@
                 </div>
                 <div class="div-box">
                     <label asp-for="DateCreated"></label>
-                    <input asp-for="DateCreated" />
+                    <input type="date" asp-for="DateCreated" />
                     <span asp-validation-for="Title"></span>
                 </div>
                 <div class="div-box">
-                    <label asp-for="AuthorId"></label>
+                    <label asp-for="AuthorId">Author</label>
                     <select name="AuthorId" asp-for="Author" asp-items="ViewBag.Authors"></select>
                 </div>
                 <div class="div-box">
-                    <input asp-for="CategoryId" />
+                    <label asp-for="CategoryId">Category</label>
                     <select name="CategoryId" asp-for="Category" asp-items="ViewBag.Categories"></select>
                 </div>
                 <div class="div-box">
