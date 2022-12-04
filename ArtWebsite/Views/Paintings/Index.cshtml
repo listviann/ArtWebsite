@@ -1,4 +1,4 @@
-﻿@model IQueryable<Painting>
+﻿@model List<PaintingViewModel>
 @{
     PageTextField pageTextField = ViewBag.PageTextField;
     ViewBag.Title = pageTextField.Title;
@@ -8,16 +8,19 @@
     @if (Model.Any())
     {
         <ul class="big-image-list">
-            @foreach(Painting entity in Model)
+            @foreach(PaintingViewModel entity in Model)
             {
                 <li>
-                    <a asp-asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-id="@entity.Id">
-                        <img src="~/images/@entity.ImagePath" alt="" class="left"/>
+                    <a asp-asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-id="@entity.PaintingId">
+                        <img src="~/images/@entity.PaintingImagePath" alt="" class="left"/>
                     </a>
-                    <h4>@entity.Title</h4>
-                    <p>@entity.Author!.Name</p>
-                    <p>@entity.Category!.Name</p>
-                    <p>@entity.DateCreated</p>
+                    <h4>@entity.PaintingTitle</h4>
+                    <p>@entity.PaintingDateCreated</p>
+                    <p>@entity.PaintingAuthorName</p>
+                    <p>@entity.PaintingCategoryName</p>
+                    <form style="display: inline-block;" asp-area="" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@entity.PaintingId" method="post">
+                        <input type="submit" value="AddToCart">
+                    </form>
                 </li>
             }
         </ul>

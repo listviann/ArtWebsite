@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CartViewModel>
+@{
+    string strTitle = "Cart";
+    ViewBag.Title = strTitle;
+}
+
+<h2>@strTitle</h2>
+<div>
+    @if (Model is not null)
+    {
+            <div>
+            <ul class="big-image-list">
+                @foreach (CartViewModel item in Model)
+                {
+                        <li>
+                            <a asp-asp-area="" asp-controller="Paintings" asp-action="Index" asp-route-id="@item.Painting.PaintingId">
+                                <img src="~/images/@item.Painting.PaintingImagePath" alt="" class="left" />
+                            </a>
+                            <h4>@item.Painting.PaintingTitle</h4>
+                            <p>@item.Quantity</p>
+                            <div>
+                                <form style="display: inline-block;" asp-area="" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Painting.PaintingId" method="post">
+                                    <input type="submit" value="Remove">
+                                </form>
+                            </div>
+                        </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <h4>Cart is empty</h4>
+    }
+</div>

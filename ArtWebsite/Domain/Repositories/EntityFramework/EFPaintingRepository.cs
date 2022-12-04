@@ -1,6 +1,9 @@
 ﻿using ArtWebsite.Domain.Entities;
 using ArtWebsite.Domain.Repositories.Abstract;
+using ArtWebsite.Models;
+using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Versioning;
 
 namespace ArtWebsite.Domain.Repositories.EntityFramework
 {
@@ -19,7 +22,24 @@ namespace ArtWebsite.Domain.Repositories.EntityFramework
             _db.SaveChanges();
         }
 
-        public Painting GetPaintingById(Guid id) => _db.Paintings.Include(p => p.Author).Include(p => p.Category).FirstOrDefault(p => p.Id == id);
+        public Painting GetPaintingById(Guid id)
+        {
+            return _db.Paintings.Include(p => p.Author).Include(p => p.Category).FirstOrDefault(p => p.Id == id);
+        }
+
+        public List<PaintingViewModel> GetPaintingModels()
+        {
+            return _db.Paintings
+                .Select(x => new PaintingViewModel
+                {
+                    PaintingId = x.Id,
+                    PaintingTitle = x.Title,
+                    PaintingImagePath = x.ImagePath,
+                    PaintingAuthorName = x.Author!.Name,
+                    PaintingCategoryName = x.Category!.Name,
+                    PaintingDateCreated = x.DateCreated
+                }).ToList();
+        }
 
         public IQueryable<Painting> GetPaintings() => _db.Paintings.Include(p => p.Author).Include(p => p.Category);
 

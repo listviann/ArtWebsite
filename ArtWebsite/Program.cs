@@ -17,6 +17,11 @@ builder.Services.AddTransient<IPaintingRepository, EFPaintingRepository>();
 builder.Services.AddTransient<IPageTextFieldRepository, EFPageTextFieldRepository>();
 builder.Services.AddTransient<DataManager>();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+});
+
 builder.Services.AddDbContext<ArtWebsiteDbContext>(options => options.UseSqlServer(Config.ConnectionString));
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -57,8 +62,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseSession();
 app.UseStaticFiles();
-
 app.UseRouting();
 app.UseCookiePolicy();
 app.UseAuthentication();
