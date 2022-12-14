@@ -4,7 +4,7 @@ The website about arts. On this website the user can look through the data about
 
 ## How does it work
 
-The administrator adds data, an unregistered (anonymous user) can look through it. Also, an anonymous user can add the painting he likes to the cart. (Cart hasn't been implemented yet)
+The administrator adds data, an unregistered (anonymous user) can look through it. Also, an anonymous user can add the painting he likes to the cart.
 
 ## Used tools
 
